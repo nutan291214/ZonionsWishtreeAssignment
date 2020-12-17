@@ -1,0 +1,31 @@
+<div class="div">
+    <h1 class="h1">Zonions</h1>
+    <button style="float: right;" class="btn btn-primary" (click)="back()">Back</button>
+    <h2 style="text-align: center;">Restaurant List</h2>
+    <table class="table">
+            <thead>
+                <th>Restaurant Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Open Time</th>
+                <th>Close Time</th>
+                <th>Last Updated Time</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>Change Status</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rl of restaurantList">
+                    <td>{{rl.restaurantName}}</td>
+                    <td>{{rl.address}}</td>
+                    <td>{{rl.phone_no}}</td>
+                    <td>{{rl.open_time }}</td>
+                    <td>{{rl.close_time}}</td>
+                    <td>{{rl.updatedTime | slice:0:8}}</td>
+                    <td>{{rl.status}}</td>
+                    <td><button class="btn btn-primary" (click)="edit(rl.id)">Edit</button>&nbsp;<button class="btn btn-danger" (click)="deleteRestaurant(rl.id)">Delete</button></td>
+                    <td><button class="btn btn-success" (click)="changeStatus(rl.id)">Change Status</button></td>
+                </tr>
+            </tbody>
+    </table>
+</div>

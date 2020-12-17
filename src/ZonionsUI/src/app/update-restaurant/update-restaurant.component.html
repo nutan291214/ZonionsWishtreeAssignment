@@ -1,0 +1,36 @@
+<div class="container jumbotron">
+    <h1 style="text-align: center;" class="display-1">Zonions</h1>
+    <button class="btn btn-primary" (click)="backEvent()" style="float: right; margin-bottom: 10px;">Back</button>
+    <h2>Restaurant</h2>
+        <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label><b>Restaurant Name</b></label>
+            <input type="text" placeholder="Enter restaurant name" required name="restoName"[(ngModel)]="restaurant.restaurantName" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label><b>Address</b></label>
+            <textarea placeholder="enter address" class="form-control" name="Address" [(ngModel)]="restaurant.address"></textarea>
+        </div>
+        <div class="form-group">
+            <label><b>Phone No.</b></label>
+            <input type="text" placeholder="Enter phone no." name="phone"class="form-control" [(ngModel)]="restaurant.phone_no">
+        </div>
+        <div class="form-group">
+            <label><b>Open Time</b></label>
+            <ngb-timepicker  name="openTime" [(ngModel)]="restaurant.open_time"></ngb-timepicker>
+        </div>
+        <div class="form-group">
+            <label><b>Closing Time</b></label>
+            <ngb-timepicker  name="closeTime" [(ngModel)]="restaurant.close_time"></ngb-timepicker>
+        </div>
+        <div>
+            <img [src]="url" height="100px" width="100px"/> &nbsp;
+            <input type="file" name="imageName" (change)="onChange($event)" style="width: 210px;"/>
+            <button type="button" class="btn btn-primary" (click)="updateImage()">Update image</button>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <br/>
+   
+</div>

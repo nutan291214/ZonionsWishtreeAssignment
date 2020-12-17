@@ -1,0 +1,49 @@
+<div class="container jumbotron">
+    <h1 style="text-align: center;"> Zonions</h1>
+    <h2>Add Restaurant</h2>
+        <form [formGroup]="restaurantForm" (ngSubmit)="saveRestaurant(restaurantForm.value)">
+            <div class="form-group">
+                <label><b>Restaurant Name</b><span style="color: red;">*</span></label>
+                <input type="text" placeholder="Enter restaurant name"
+                formControlName="restaurantName" name="restaurantName" class="form-control"/>
+            </div>
+            <div *ngFor="let validation of restaurantName_validation_message.restaurantName">
+                <div  *ngIf="restaurantForm.get('restaurantName').hasError(validation.type)
+                 && (restaurantForm.get('restaurantName').dirty || restaurantForm.get('restaurantName').touched)">{{validation.message}}</div>
+              </div>
+            <div class="form-group">
+                <label><b>Address</b><span style="color: red;">*</span></label>
+                <textarea placeholder="enter address" class="form-control" 
+                formControlName="address" name="address"></textarea>
+            </div>
+            <div *ngFor="let validation of address_validation_message.address">
+                <div  *ngIf="restaurantForm.get('address').hasError(validation.type)
+                 && (restaurantForm.get('address').dirty || restaurantForm.get('address').touched)">{{validation.message}}</div>
+            </div>
+            <div class="form-group">
+                <label><b>Phone No.</b><span style="color: red;">*</span></label>
+                <input type="text" placeholder="Enter phone no." class="form-control" 
+                formControlName="phone_no" name="phoneno" >
+            </div>
+            <div *ngFor="let validation of phone_no_validation_message.phone_no">
+                <div  *ngIf="restaurantForm.get('phone_no').hasError(validation.type)
+                 && (restaurantForm.get('phone_no').dirty || restaurantForm.get('phone_no').touched)">{{validation.message}}</div>
+            </div>
+            <div class="form-group">
+                <label><b>Open Time</b></label>
+                <ngb-timepicker [formControlName]="'open_time'" ></ngb-timepicker>
+            </div>
+            <div class="form-group">
+                <label><b>Closing Time</b></label>
+                <ngb-timepicker [formControlName]="'close_time'"></ngb-timepicker>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Check">Save Restaurant</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" (click)="backEvent()">Back</button>
+        </form>
+        <br/>
+        <form (ngSubmit)="uploadFile()">
+            <input type="file" (change)="onFileChangeEvent($event)" multiple="false" name="select file"
+             style="width: 210px;" accept=".png,.jpg,.jpeg,.jfif" />
+            <button type="submit" class="btn btn-primary">Upload Image</button>
+         </form>
+</div>

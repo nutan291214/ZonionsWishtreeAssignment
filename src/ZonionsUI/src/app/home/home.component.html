@@ -1,0 +1,12 @@
+
+<div class="table-responsive">
+    <table class="table table-striped">
+    <h3>Active Restaurant List</h3>
+        <tbody>
+            <tr *ngFor="let r of restaurant" class="d-flex">
+                <td class="col-2"><b>Active Restaurant:</b></td>
+                <td ><a [routerLink]="['/restaurantDetail',r.restaurantName]"><button class="btn btn-info" >{{r.restaurantName}}</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

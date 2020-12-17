@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 style="text-align:center;" class="display-4">Restaurant Details</h3>
+        <table class="table striped">
+            <thead>
+                <th>Restaurant Name</th>
+                <th>Restaurant Address</th>
+                <th>Phone Number</th>
+                <th>Open Time</th>
+                <th>Close time</th>
+                <th>Menu Image</th>
+            </thead>
+            <tbody>
+                <tr>    
+                    <td>{{restaurantList.restaurantName}}</td>
+                        <td>{{restaurantList.address}}</td>
+                        <td>{{restaurantList.phone_no}}</td>
+                        <td>{{restaurantList.open_time }}</td>
+                        <td>{{restaurantList.close_time}}</td>
+                        <td><img [src]="url" style="height: 200px; width: 200px;"/></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
